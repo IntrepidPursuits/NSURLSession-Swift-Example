@@ -25,6 +25,21 @@ class FoodListViewController: UIViewController, UITableViewDataSource, UITableVi
         addTestFoods()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        FoodService.sharedService.getFoodsWithCompletion { response in
+            switch response {
+            case .Failure(let error):
+                print("Error fetching foods: \(error)")
+            case .Success(let returnedFoods):
+                print("success: \(returnedFoods)")
+                self.foods = returnedFoods
+                self.tableView.reloadData()
+            }
+        }
+    }
+
     private func setupNavigation() {
         title = "Food List"
         let addFoodButton = UIBarButtonItem(title: "+", style: .Plain, target: self, action: "addFoodButtonPressed:")
