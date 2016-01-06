@@ -8,8 +8,17 @@
 
 import Foundation
 
+enum FoodServiceError: ErrorType {
+    case UnexpectedAPIResponse
+}
+
 enum FoodListResponse {
     case Success(foods: [Food])
+    case Failure(error: ErrorType)
+}
+
+enum FoodCreatedResponse {
+    case Success(food: Food)
     case Failure(error: ErrorType)
 }
 
@@ -78,4 +87,50 @@ class FoodService {
         }
         task.resume()
     }
+
+    func createFoodWithName(name: String, isHealthy: Bool, completion: ((FoodCreatedResponse) -> Void)) {
+        let path = "https://api.parse.com/1/classes/Food";
+        guard let url = NSURL(string: path) else {
+            return
+        }
+
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+
+        do {
+            let dict: [String: AnyObject] = [
+                "name": name,
+                "isHealthy": isHealthy
+            ]
+            let jsonData = try NSJSONSerialization.dataWithJSONObject(dict, options: [])
+            let task = session.uploadTaskWithRequest(request, fromData: jsonData) { (data: NSData?, response: NSURLResponse?, error: NSError?) in
+                var result: FoodCreatedResponse
+                if let data = data {
+                    do {
+                        let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary
+                        if let identifier = jsonResult?["objectId"] as? String {
+                            let food = Food(identifier: identifier, name: name, isHealthy: isHealthy)
+                            result = FoodCreatedResponse.Success(food: food)
+                        } else {
+                            result = FoodCreatedResponse.Failure(error: FoodServiceError.UnexpectedAPIResponse)
+                        }
+                    } catch let error as NSError {
+                        result = FoodCreatedResponse.Failure(error: error)
+                    }
+                } else {
+                    result = FoodCreatedResponse.Failure(error: FoodServiceError.UnexpectedAPIResponse)
+                }
+
+                // Call our completion handler on the main queue
+                dispatch_async(dispatch_get_main_queue()) {
+                    completion(result)
+                }
+            }
+            task.resume()
+        } catch let error as NSError {
+            completion(FoodCreatedResponse.Failure(error: error))
+        }
+    }
 }
+
+// TODO: Move mapping code into extension
