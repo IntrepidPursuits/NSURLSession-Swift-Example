@@ -17,12 +17,7 @@ class FoodService {
 
     static let sharedService = FoodService()
 
-    func getFoodsWithCompletion(completion: ((FoodListResponse) -> Void)) {
-        let path = "https://api.parse.com/1/classes/Food"
-        guard let url = NSURL(string: path) else {
-            return
-        }
-
+    private let session: NSURLSession = {
         let sessionConfig: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
         sessionConfig.HTTPAdditionalHeaders = [
             "Accept": "application/json",
@@ -31,6 +26,15 @@ class FoodService {
         ]
 
         let session = NSURLSession(configuration: sessionConfig)
+        return session
+    }()
+
+    func getFoodsWithCompletion(completion: ((FoodListResponse) -> Void)) {
+        let path = "https://api.parse.com/1/classes/Food"
+        guard let url = NSURL(string: path) else {
+            return
+        }
+
         let task = session.dataTaskWithURL(url) { (data: NSData?, response: NSURLResponse?, error: NSError?) in
             var result: FoodListResponse
 
