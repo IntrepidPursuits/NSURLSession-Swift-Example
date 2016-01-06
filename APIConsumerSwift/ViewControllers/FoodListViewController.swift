@@ -19,9 +19,16 @@ class FoodListViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupNavigation()
         setupTableView()
 
         addTestFoods()
+    }
+
+    private func setupNavigation() {
+        title = "Food List"
+        let addFoodButton = UIBarButtonItem(title: "+", style: .Plain, target: self, action: "addFoodButtonPressed:")
+        navigationItem.rightBarButtonItem = addFoodButton
     }
 
     private func setupTableView() {
@@ -60,4 +67,10 @@ class FoodListViewController: UIViewController, UITableViewDataSource, UITableVi
 
     // MARK: - UITableViewDelegate
 
+    // MARK: - Actions
+
+    func addFoodButtonPressed(sender: UIBarButtonItem) {
+        let foodCreationViewController = FoodCreationViewController(nibName: "FoodCreationViewController", bundle: nil)
+        navigationController?.pushViewController(foodCreationViewController, animated: true)
+    }
 }
