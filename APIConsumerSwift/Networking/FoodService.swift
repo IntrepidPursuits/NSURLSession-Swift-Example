@@ -132,5 +132,3 @@ class FoodService {
         }
     }
 }
-
-// TODO: Move mapping code into extension
