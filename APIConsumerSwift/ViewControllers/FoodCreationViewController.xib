@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodCreationViewController" customModule="APIConsumerSwift" customModuleProvider="target">
             <connections>
+                <outlet property="healthySwitch" destination="ynh-QQ-Ndt" id="ulY-VZ-J02"/>
+                <outlet property="nameTextField" destination="GJy-Pj-Fw4" id="vLt-4A-LEE"/>
                 <outlet property="view" destination="TDB-Ez-3xd" id="10N-Br-KQ0"/>
             </connections>
         </placeholder>
@@ -43,6 +45,9 @@
                     <state key="normal" title="Add Food">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="addFoodButtonPressed:" destination="-1" eventType="touchUpInside" id="CuA-yX-gcb"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
