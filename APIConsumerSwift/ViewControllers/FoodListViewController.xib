@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodListViewController" customModule="APIConsumerSwift" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="eeE-ek-iXt" id="hCN-ae-HRP"/>
                 <outlet property="view" destination="Kob-tR-5C0" id="uLa-ZK-YtV"/>
             </connections>
         </placeholder>
