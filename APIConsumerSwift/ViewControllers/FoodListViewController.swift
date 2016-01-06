@@ -28,16 +28,7 @@ class FoodListViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
-        FoodService.sharedService.getFoodsWithCompletion { response in
-            switch response {
-            case .Failure(let error):
-                print("Error fetching foods: \(error)")
-            case .Success(let returnedFoods):
-                print("success: \(returnedFoods)")
-                self.foods = returnedFoods
-                self.tableView.reloadData()
-            }
-        }
+        // TODO: Fetch the latest foods and update the table
     }
 
     private func setupNavigation() {
@@ -56,7 +47,7 @@ class FoodListViewController: UIViewController, UITableViewDataSource, UITableVi
         foods.append(Food(identifier: "foobar1", name: "Hot Dog", isHealthy: false))
         foods.append(Food(identifier: "foobar2", name: "Hamburger", isHealthy: false))
         foods.append(Food(identifier: "foobar3", name: "Salad", isHealthy: true))
-        foods.append(Food(identifier: "foobar4", name: "Dank Grapes", isHealthy: true))
+        foods.append(Food(identifier: "foobar4", name: "Grapes", isHealthy: true))
         tableView.reloadData()
     }
 
