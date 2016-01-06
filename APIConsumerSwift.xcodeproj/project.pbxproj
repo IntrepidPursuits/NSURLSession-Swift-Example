@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AFCAFD661C3C85E1005C08B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCAFD651C3C85E1005C08B6 /* AppDelegate.swift */; };
-		AFCAFD681C3C85E1005C08B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCAFD671C3C85E1005C08B6 /* ViewController.swift */; };
 		AFCAFD6D1C3C85E1005C08B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFCAFD6C1C3C85E1005C08B6 /* Assets.xcassets */; };
 		AFCAFD701C3C85E2005C08B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFCAFD6E1C3C85E2005C08B6 /* LaunchScreen.storyboard */; };
 		AFCAFD7A1C3C89EA005C08B6 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCAFD781C3C89EA005C08B6 /* FoodListViewController.swift */; };
@@ -22,7 +21,6 @@
 /* Begin PBXFileReference section */
 		AFCAFD621C3C85E1005C08B6 /* APIConsumerSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APIConsumerSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFCAFD651C3C85E1005C08B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AFCAFD671C3C85E1005C08B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AFCAFD6C1C3C85E1005C08B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFCAFD6F1C3C85E2005C08B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFCAFD711C3C85E2005C08B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 				AFCAFD801C3C953D005C08B6 /* Models */,
 				AFCAFD771C3C89BB005C08B6 /* ViewControllers */,
 				AFCAFD651C3C85E1005C08B6 /* AppDelegate.swift */,
-				AFCAFD671C3C85E1005C08B6 /* ViewController.swift */,
 				AFCAFD6C1C3C85E1005C08B6 /* Assets.xcassets */,
 				AFCAFD6E1C3C85E2005C08B6 /* LaunchScreen.storyboard */,
 				AFCAFD711C3C85E2005C08B6 /* Info.plist */,
@@ -177,7 +174,6 @@
 			files = (
 				AFCAFD7A1C3C89EA005C08B6 /* FoodListViewController.swift in Sources */,
 				AFCAFD851C3CB442005C08B6 /* FoodService.swift in Sources */,
-				AFCAFD681C3C85E1005C08B6 /* ViewController.swift in Sources */,
 				AFCAFD821C3C956E005C08B6 /* Food.swift in Sources */,
 				AFCAFD7E1C3C941E005C08B6 /* FoodCreationViewController.swift in Sources */,
 				AFCAFD661C3C85E1005C08B6 /* AppDelegate.swift in Sources */,
